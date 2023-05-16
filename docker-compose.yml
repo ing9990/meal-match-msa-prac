@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  config-service:
+    build:
+      context: ./config-service
+      dockerfile: Dockerfile-config
+    ports:
+      - "8888:8888"
+
+  discovery-service:
+    build:
+      context: ./mealmatch-discovery/
+      dockerfile: Dockerfile-discovery
+    depends_on:
+      - config-service
+    ports:
+      - "8761:8761"
+
+  gateway-service:
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile-gateway
+    depends_on:
+      - config-service
+      - discovery-service
+    ports:
+      - "8000:8000"
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile-user
+    depends_on:
+      - config-service
+      - discovery-service
+      - gateway-service
+    ports:
+      - "9001:9001"

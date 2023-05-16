@@ -1,0 +1,11 @@
+{
+  "message" : "NOK",
+  "data" : [
+    {
+      "field" : "startAt",
+      "reason" : "잘못된 시간입니다.",
+      "path" : "/api/markets"
+    }
+  ],
+  "ticketId" : "err-c912xxx-xxxxx"
+}

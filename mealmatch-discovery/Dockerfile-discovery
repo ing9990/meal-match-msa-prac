@@ -1,0 +1,8 @@
+FROM  adoptopenjdk/openjdk11
+VOLUME /tmp
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} mealmatch-discovery.jar
+ENTRYPOINT ["java","-jar","/mealmatch-discovery.jar"]
+
+
+
