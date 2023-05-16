@@ -5,10 +5,7 @@ server:
 spring:
   application:
     name: user-service
-
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://discovery-service:8761/eureka/
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
+  cache:
+    cache-names: users

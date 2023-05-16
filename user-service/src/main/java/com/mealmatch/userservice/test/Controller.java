@@ -14,6 +14,6 @@ public class Controller {
 
     @GetMapping
     public String test() {
-        return "Hello this is " + env.getProperty("server.port") + " !!   " + env.getProperty("user.greeting");
+        return "Hello this is " + env.getProperty("server.port") + " !!   " + env.getProperty("user.greeting") + env.getProperty("hello.world");
     }
 }
