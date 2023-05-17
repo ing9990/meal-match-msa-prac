@@ -37,3 +37,15 @@ services:
       - gateway-service
     ports:
       - "9001:9001"
+
+  grafana-server:
+    build: ./docker/grafana
+    container_name: grafana-server
+    ports:
+      - "3000:3000"
+
+  prometheus-server:
+    build: ./docker/prometheus
+    container_name: prometheus-server
+    ports:
+      - "9090:9090"

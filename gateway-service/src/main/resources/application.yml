@@ -15,6 +15,7 @@ spring:
             - Path=/user-service/**
           filters:
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
 eureka:
   client:
     fetch-registry: true
